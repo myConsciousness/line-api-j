@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2021 Kato Shinya.
  *
@@ -20,12 +19,13 @@ import java.io.Serializable;
 import com.google.api.client.http.GenericUrl;
 
 import org.thinkit.api.line.catalog.LineApi;
-import org.thinkit.api.line.notify.http.HttpCommunicator;
+import org.thinkit.api.line.notify.http.LineNotifyCommunicator;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.ToString;
 
 @ToString
@@ -41,7 +41,7 @@ public final class LineNotifyJ implements LineNotify, Serializable {
     private String token;
 
     @Override
-    public void sendMessage(String message) {
-        HttpCommunicator.from(this.token).post(new GenericUrl(LineApi.LINE_NOTIFY.getTag()), message);
+    public void sendMessage(@NonNull final String message) {
+        LineNotifyCommunicator.from(this.token).post(new GenericUrl(LineApi.LINE_NOTIFY.getTag()), message);
     }
 }

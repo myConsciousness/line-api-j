@@ -22,8 +22,9 @@ import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpRequest;
 
 import org.thinkit.api.line.catalog.ContentType;
+import org.thinkit.api.line.catalog.RequestParameterKey;
 import org.thinkit.api.line.http.AbstractCommunicator;
-import org.thinkit.api.line.util.LineNotifyApiUtils;
+import org.thinkit.api.line.util.RequestParameterUtils;
 import org.thinkit.api.line.util.SecuritySchemeUtils;
 
 import lombok.AllArgsConstructor;
@@ -32,7 +33,7 @@ import lombok.NonNull;
 import lombok.ToString;
 
 /**
- * The class that provides general-purpose processing for HTTP communication.
+ * The class that provides the process of HTTP communication for Line Notify.
  *
  * @author Kato Shinya
  * @since 1.0.0
@@ -40,7 +41,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor(staticName = "from")
-public final class HttpCommunicator extends AbstractCommunicator implements Serializable {
+public final class LineNotifyCommunicator extends AbstractCommunicator implements Serializable {
 
     /**
      * The token
@@ -62,7 +63,7 @@ public final class HttpCommunicator extends AbstractCommunicator implements Seri
         try {
             final HttpRequest httpRequest = super.getHttpRequestFactory().buildPostRequest(genericUrl,
                     ByteArrayContent.fromString(ContentType.APPLICATION_X_WWWW_FORM_URLENCODED.getTag(),
-                            LineNotifyApiUtils.toMessageContent(message)));
+                            RequestParameterUtils.create(RequestParameterKey.MESSAGE, message)));
 
             httpRequest.getHeaders().setAuthorization(SecuritySchemeUtils.bearer(token));
             this.checkHttpStatus(httpRequest.execute());

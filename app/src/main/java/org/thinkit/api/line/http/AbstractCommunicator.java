@@ -33,6 +33,12 @@ import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.ToString;
 
+/**
+ *
+ *
+ * @author Kato Shinya
+ * @since 1.0.0
+ */
 @ToString
 @EqualsAndHashCode
 public abstract class AbstractCommunicator implements Communicator {
@@ -89,6 +95,11 @@ public abstract class AbstractCommunicator implements Communicator {
         }
     }
 
+    /**
+     * Returns the instance of {@link HttpRequestFactory} .
+     *
+     * @return The instance of {@link HttpRequestFactory} .
+     */
     protected HttpRequestFactory getHttpRequestFactory() {
         return HTTP_REQUEST_FACTORY;
     }

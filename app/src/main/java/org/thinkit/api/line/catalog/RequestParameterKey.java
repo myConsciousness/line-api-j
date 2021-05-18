@@ -20,13 +20,13 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * The catalog that manages line notify parameter.
+ * The catalog that manages request parameter key.
  *
  * @author Kato Shinya
  * @since 1.0.0
  */
 @RequiredArgsConstructor
-public enum LineNotifyParameter implements BiCatalog<LineNotifyParameter, String> {
+public enum RequestParameterKey implements BiCatalog<RequestParameterKey, String> {
 
     /**
      * The message

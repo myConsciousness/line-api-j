@@ -17,24 +17,39 @@ package org.thinkit.api.line.util;
 import java.util.StringJoiner;
 
 import org.apache.commons.lang3.StringUtils;
-import org.thinkit.api.line.catalog.LineNotifyParameter;
+import org.thinkit.api.line.catalog.RequestParameterKey;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+/**
+ * The util class that manages request parameter.
+ *
+ * @author Kato Shinya
+ * @since 1.0.0
+ */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class LineNotifyApiUtils {
+public final class RequestParameterUtils {
 
-    public static String toMessageContent(@NonNull final String message) {
+    /**
+     * Returns the request parameter based on the value passed as an argument.
+     *
+     * @param requestParameterKey The request parameter key
+     * @param value               The request parameter value
+     * @return The request parameter based on the value passed as an argument
+     *
+     * @exception NullPointerException If {@code null} is passed as an argument
+     */
+    public static String create(@NonNull final RequestParameterKey requestParameterKey, @NonNull final String value) {
 
-        if (StringUtils.isEmpty(message)) {
+        if (StringUtils.isEmpty(value)) {
             return "";
         }
 
         final StringJoiner messageJoiner = new StringJoiner("=");
-        messageJoiner.add(LineNotifyParameter.MESSAGE.getTag());
-        messageJoiner.add(message);
+        messageJoiner.add(requestParameterKey.getTag());
+        messageJoiner.add(value);
 
         return messageJoiner.toString();
     }
