@@ -33,6 +33,7 @@ publishing {
         version = gitVersion()
 
         gpr(MavenPublication) {
+            artifactId = 'line-api-j'
             from(components.java)
         }
     }
