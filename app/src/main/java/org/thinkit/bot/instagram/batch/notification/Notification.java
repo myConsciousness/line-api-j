@@ -14,7 +14,7 @@
 
 package org.thinkit.bot.instagram.batch.notification;
 
-import com.mongodb.lang.NonNull;
+import lombok.NonNull;
 
 /**
  * The interfaces that represents notification.

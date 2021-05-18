@@ -16,14 +16,13 @@ package org.thinkit.bot.instagram.batch.util;
 
 import java.util.StringJoiner;
 
-import com.mongodb.lang.NonNull;
-
 import org.apache.commons.lang3.StringUtils;
 import org.thinkit.bot.instagram.batch.catalog.LineNotifyParameter;
 import org.thinkit.bot.instagram.catalog.Delimiter;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class LineNotifyApiUtils {

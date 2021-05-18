@@ -1,13 +1,11 @@
-![Build](https://img.shields.io/badge/Build-Automated-2980b9.svg?style=for-the-badge)
 ![Latest Version](https://img.shields.io/badge/Latest_Version-v1.0.0-27ae60.svg?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Apache_2.0-e74c3c.svg?style=for-the-badge)</br>
-![Java CI with Gradle](https://github.com/myConsciousness/insta-bot-j/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
-# 1. InstaBotJ
+# 1. Line API J
 
 **Table of Contents**
 
-- [1. InstaBotJ](#1-instabotj)
+- [1. Line API J](#1-line-api-j)
   - [1.1. What is it?](#11-what-is-it)
   - [1.2. Benefits](#12-benefits)
   - [1.3. How To Use](#13-how-to-use)
@@ -26,15 +24,15 @@ Preparing...
 ### 1.3.1. Add the dependencies
 
 > **_Note:_**</br>
-> Replace version you want to use. Check the latest [Packages](https://github.com/myConsciousness/insta-bot-j/packages).</br>
+> Replace version you want to use. Check the latest [Packages](https://github.com/myConsciousness/line-api-j/packages).</br>
 > Please contact me for a token to download the package.
 
 **_Maven_**
 
 ```xml
 <dependency>
-  <groupId>org.thinkit.bot.instagram.github</groupId>
-  <artifactId>insta-bot-j</artifactId>
+  <groupId>org.thinkit.api.line.notify</groupId>
+  <artifactId>line-api-j</artifactId>
   <version>v1.0.0</version>
 </dependency>
 
@@ -53,7 +51,7 @@ Preparing...
 repositories {
     maven {
         name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/myConsciousness/insta-bot-j")
+        url = uri("https://maven.pkg.github.com/myConsciousness/line-api-j")
         credentials {
           username = "myConsciousness"
           password = "xxxxxxxxxxxxxxxxxx"
@@ -62,7 +60,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.thinkit.bot.instagram.github:insta-bot-j:v1.0.0'
+    implementation 'org.thinkit.api.line.notify:line-api-j:v1.0.0'
 }
 ```
 
@@ -84,14 +82,14 @@ the License.
 
 ## 1.5. More Information
 
-`InstaBotJ` was designed and implemented by Kato Shinya, who works as a freelance developer.
+`Line API J` was designed and implemented by Kato Shinya, who works as a freelance developer.
 
 Regardless of the means or content of communication, I would love to hear from you if you have any questions or concerns. I do not check my email box very often so a response may be delayed, anyway thank you for your interest!
 
 - [Creator Profile](https://github.com/myConsciousness)
 - [Creator Website](https://myconsciousness.github.io/)
-- [License](https://github.com/myConsciousness/insta-bot-j/blob/master/LICENSE)
-- [Release Note](https://github.com/myConsciousness/insta-bot-j/releases)
-- [Package](https://github.com/myConsciousness/insta-bot-j/packages)
-- [File a Bug](https://github.com/myConsciousness/insta-bot-j/issues)
-- [Reference](https://myconsciousness.github.io/insta-bot-j/)
+- [License](https://github.com/myConsciousness/line-api-j/blob/master/LICENSE)
+- [Release Note](https://github.com/myConsciousness/line-api-j/releases)
+- [Package](https://github.com/myConsciousness/line-api-j/packages)
+- [File a Bug](https://github.com/myConsciousness/line-api-j/issues)
+- [Reference](https://myconsciousness.github.io/line-api-j/)
