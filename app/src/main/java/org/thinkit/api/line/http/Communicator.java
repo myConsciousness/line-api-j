@@ -18,6 +18,12 @@ import com.google.api.client.http.GenericUrl;
 
 import lombok.NonNull;
 
+/**
+ * The interface that manages the communication process.
+ *
+ * @author Kato Shinya
+ * @since 1.0.0
+ */
 public interface Communicator {
 
     /**

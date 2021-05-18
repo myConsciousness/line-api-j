@@ -34,7 +34,7 @@ import lombok.NonNull;
 import lombok.ToString;
 
 /**
- *
+ * The interface that abstracts the communication process.
  *
  * @author Kato Shinya
  * @since 1.0.0

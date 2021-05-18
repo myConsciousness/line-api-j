@@ -24,5 +24,12 @@ import lombok.NonNull;
  */
 public interface LineNotify {
 
+    /**
+     * Sends the message passed as an argument.
+     *
+     * @param message The message
+     *
+     * @exception NullPointerException If {@code null} is passed as an argument
+     */
     public void sendMessage(@NonNull final String message);
 }

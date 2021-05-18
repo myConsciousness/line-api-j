@@ -53,10 +53,8 @@ public final class LineNotifyCommunicator extends AbstractCommunicator implement
      * Sends a POST request to the URL set in the URL object passed as an argument.
      *
      * @param genericUrl The API URL
-     * @return The HTTP response
      *
      * @exception NullPointerException If {@code null} is passed as an argument
-     * @throws IOException If an error occurs during HTTP communication
      */
     @Override
     public void post(@NonNull final GenericUrl genericUrl, @NonNull final String message) {

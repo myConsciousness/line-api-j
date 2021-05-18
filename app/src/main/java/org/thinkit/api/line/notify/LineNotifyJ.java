@@ -28,6 +28,12 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
 
+/**
+ * The class that implements the process of sending a message to Line Notify.
+ *
+ * @author Kato Shinya
+ * @since 1.0.0
+ */
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
