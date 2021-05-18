@@ -18,7 +18,6 @@ import java.util.StringJoiner;
 
 import org.apache.commons.lang3.StringUtils;
 import org.thinkit.api.line.catalog.LineNotifyParameter;
-import org.thinkit.bot.instagram.catalog.Delimiter;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -33,7 +32,7 @@ public final class LineNotifyApiUtils {
             return "";
         }
 
-        final StringJoiner messageJoiner = new StringJoiner(Delimiter.EQUAL.getTag());
+        final StringJoiner messageJoiner = new StringJoiner("=");
         messageJoiner.add(LineNotifyParameter.MESSAGE.getTag());
         messageJoiner.add(message);
 

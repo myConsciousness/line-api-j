@@ -20,7 +20,7 @@ import java.io.Serializable;
 import com.google.api.client.http.GenericUrl;
 
 import org.thinkit.api.line.catalog.NotificationApi;
-import org.thinkit.bot.instagram.batch.notification.http.HttpCommunicator;
+import org.thinkit.api.line.notify.http.HttpCommunicator;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

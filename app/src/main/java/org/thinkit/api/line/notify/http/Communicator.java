@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.notification.http;
+package org.thinkit.api.line.notify.http;
 
 import com.google.api.client.http.GenericUrl;
 

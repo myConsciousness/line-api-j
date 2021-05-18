@@ -18,7 +18,6 @@ import java.util.StringJoiner;
 
 import org.apache.commons.lang3.StringUtils;
 import org.thinkit.api.line.catalog.SecurityScheme;
-import org.thinkit.bot.instagram.catalog.Delimiter;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -45,7 +44,7 @@ public final class SecuritySchemeUtils {
             return "";
         }
 
-        final StringJoiner tokenJoiner = new StringJoiner(Delimiter.SPACE.getTag());
+        final StringJoiner tokenJoiner = new StringJoiner(" ");
         tokenJoiner.add(SecurityScheme.BEARER.getTag());
         tokenJoiner.add(token);
 
