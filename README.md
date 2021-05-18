@@ -1,4 +1,4 @@
-![Latest Version](https://img.shields.io/badge/Latest_Version-v1.0.1-27ae60.svg?style=for-the-badge)
+![Latest Version](https://img.shields.io/badge/Latest_Version-v1.0.2-27ae60.svg?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Apache_2.0-e74c3c.svg?style=for-the-badge)</br>
 
 # 1. Line API J
@@ -33,7 +33,7 @@ Preparing...
 <dependency>
   <groupId>org.thinkit.api.line.notify</groupId>
   <artifactId>line-api-j</artifactId>
-  <version>v1.0.1</version>
+  <version>v1.0.2</version>
 </dependency>
 
 <servers>
@@ -60,7 +60,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.thinkit.api.line.notify:line-api-j:v1.0.1'
+    implementation 'org.thinkit.api.line.notify:line-api-j:v1.0.2'
 }
 ```
 
