@@ -12,36 +12,17 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.catalog;
+package org.thinkit.api.line.notify;
 
-import org.thinkit.api.catalog.BiCatalog;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NonNull;
 
 /**
- * The catalog that manages notification API.
+ * The interfaces that represents notification.
  *
  * @author Kato Shinya
  * @since 1.0.0
  */
-@RequiredArgsConstructor
-public enum NotificationApi implements BiCatalog<NotificationApi, String> {
+public interface Notification {
 
-    /**
-     * The Line Notify
-     */
-    LINE_NOTIFY(0, "https://notify-api.line.me/api/notify");
-
-    /**
-     * The code
-     */
-    @Getter
-    private final int code;
-
-    /**
-     * The tag
-     */
-    @Getter
-    private final String tag;
+    public void sendMessage(@NonNull final String message);
 }

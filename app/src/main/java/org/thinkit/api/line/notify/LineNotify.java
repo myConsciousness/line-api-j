@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2021 Kato Shinya.
  *
@@ -12,13 +13,13 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.notification;
+package org.thinkit.api.line.notify;
 
 import java.io.Serializable;
 
 import com.google.api.client.http.GenericUrl;
 
-import org.thinkit.bot.instagram.batch.catalog.NotificationApi;
+import org.thinkit.api.line.catalog.NotificationApi;
 import org.thinkit.bot.instagram.batch.notification.http.HttpCommunicator;
 
 import lombok.AccessLevel;

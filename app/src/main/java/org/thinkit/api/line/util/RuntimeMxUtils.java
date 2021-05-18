@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.util;
+package org.thinkit.api.line.util;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;

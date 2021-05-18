@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.catalog;
+package org.thinkit.api.line.catalog;
 
 import org.thinkit.api.catalog.BiCatalog;
 

@@ -12,17 +12,36 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.notification;
+package org.thinkit.api.line.catalog;
 
-import lombok.NonNull;
+import org.thinkit.api.catalog.BiCatalog;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
- * The interfaces that represents notification.
+ * The catalog that manages security scheme.
  *
  * @author Kato Shinya
  * @since 1.0.0
  */
-public interface Notification {
+@RequiredArgsConstructor
+public enum SecurityScheme implements BiCatalog<SecurityScheme, String> {
 
-    public void sendMessage(@NonNull final String message);
+    /**
+     * The {@code "Bearer"} scheme
+     */
+    BEARER(0, "Bearer");
+
+    /**
+     * The code
+     */
+    @Getter
+    private final int code;
+
+    /**
+     * The tag
+     */
+    @Getter
+    private final String tag;
 }

@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.exception.http;
+package org.thinkit.api.line.exception.http;
 
 /**
  * Thrown to indicate that the user is unauthorized.

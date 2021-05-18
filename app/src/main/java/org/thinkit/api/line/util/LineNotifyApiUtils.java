@@ -12,12 +12,12 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.util;
+package org.thinkit.api.line.util;
 
 import java.util.StringJoiner;
 
 import org.apache.commons.lang3.StringUtils;
-import org.thinkit.bot.instagram.batch.catalog.LineNotifyParameter;
+import org.thinkit.api.line.catalog.LineNotifyParameter;
 import org.thinkit.bot.instagram.catalog.Delimiter;
 
 import lombok.AccessLevel;

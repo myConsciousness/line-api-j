@@ -12,7 +12,7 @@
  * the License.
  */
 
-package org.thinkit.bot.instagram.batch.catalog;
+package org.thinkit.api.line.catalog;
 
 import org.thinkit.api.catalog.BiCatalog;
 
@@ -20,18 +20,18 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * The catalog that manages security scheme.
+ * The catalog that manages notification API.
  *
  * @author Kato Shinya
  * @since 1.0.0
  */
 @RequiredArgsConstructor
-public enum SecurityScheme implements BiCatalog<SecurityScheme, String> {
+public enum NotificationApi implements BiCatalog<NotificationApi, String> {
 
     /**
-     * The {@code "Bearer"} scheme
+     * The Line Notify
      */
-    BEARER(0, "Bearer");
+    LINE_NOTIFY(0, "https://notify-api.line.me/api/notify");
 
     /**
      * The code
