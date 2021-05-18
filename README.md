@@ -31,7 +31,7 @@ Preparing...
 
 ```xml
 <dependency>
-  <groupId>org.thinkit.api.line.notify</groupId>
+  <groupId>org.thinkit.api.line</groupId>
   <artifactId>line-api-j</artifactId>
   <version>v1.0.2</version>
 </dependency>
@@ -60,7 +60,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.thinkit.api.line.notify:line-api-j:v1.0.2'
+    implementation 'org.thinkit.api.line:line-api-j:v1.0.2'
 }
 ```
 
