@@ -12,17 +12,21 @@
  * the License.
  */
 
-package org.thinkit.api.line.notify;
+package org.thinkit.api.line.http;
+
+import com.google.api.client.http.GenericUrl;
 
 import lombok.NonNull;
 
-/**
- * The interfaces that represents notification.
- *
- * @author Kato Shinya
- * @since 1.0.0
- */
-public interface Notification {
+public interface Communicator {
 
-    public void sendMessage(@NonNull final String message);
+    /**
+     * Sends a post request to the request URL.
+     *
+     * @param genericUrl The request url object
+     * @param message    The message
+     *
+     * @exception NullPointerException if {@code null} is passed as an argument
+     */
+    public void post(@NonNull final GenericUrl genericUrl, @NonNull final String message);
 }

@@ -20,13 +20,13 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * The catalog that manages notification API.
+ * The catalog that manages Line API.
  *
  * @author Kato Shinya
  * @since 1.0.0
  */
 @RequiredArgsConstructor
-public enum NotificationApi implements BiCatalog<NotificationApi, String> {
+public enum LineApi implements BiCatalog<LineApi, String> {
 
     /**
      * The Line Notify

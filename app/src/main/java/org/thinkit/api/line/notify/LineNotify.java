@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2021 Kato Shinya.
  *
@@ -15,33 +14,15 @@
 
 package org.thinkit.api.line.notify;
 
-import java.io.Serializable;
+import lombok.NonNull;
 
-import com.google.api.client.http.GenericUrl;
+/**
+ * The interfaces that represents notification.
+ *
+ * @author Kato Shinya
+ * @since 1.0.0
+ */
+public interface LineNotify {
 
-import org.thinkit.api.line.catalog.NotificationApi;
-import org.thinkit.api.line.notify.http.HttpCommunicator;
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@ToString
-@EqualsAndHashCode
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(staticName = "from")
-public final class LineNotify implements Notification, Serializable {
-
-    /**
-     * The token
-     */
-    @ToString.Exclude
-    private String token;
-
-    @Override
-    public void sendMessage(String message) {
-        HttpCommunicator.from(this.token).post(new GenericUrl(NotificationApi.LINE_NOTIFY.getTag()), message);
-    }
+    public void sendMessage(@NonNull final String message);
 }

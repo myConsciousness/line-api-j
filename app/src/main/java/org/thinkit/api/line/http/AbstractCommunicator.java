@@ -12,19 +12,13 @@
  * the License.
  */
 
-package org.thinkit.api.line.notify.http;
+package org.thinkit.api.line.http;
 
-import java.io.IOException;
-
-import com.google.api.client.http.ByteArrayContent;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestFactory;
 import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.javanet.NetHttpTransport;
 
 import org.thinkit.api.catalog.BiCatalog;
-import org.thinkit.api.line.catalog.ContentType;
 import org.thinkit.api.line.catalog.ErrorHttpStatus;
 import org.thinkit.api.line.exception.http.AccessForbiddenException;
 import org.thinkit.api.line.exception.http.BadGatewayException;
@@ -34,50 +28,19 @@ import org.thinkit.api.line.exception.http.NotAcceptableException;
 import org.thinkit.api.line.exception.http.NotFoundException;
 import org.thinkit.api.line.exception.http.ServiceUnavailableException;
 import org.thinkit.api.line.exception.http.UserUnauthorizedException;
-import org.thinkit.api.line.util.LineNotifyApiUtils;
-import org.thinkit.api.line.util.SecuritySchemeUtils;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor
 public abstract class AbstractCommunicator implements Communicator {
 
     /**
      * The http request factory
      */
     private static final HttpRequestFactory HTTP_REQUEST_FACTORY = (new NetHttpTransport()).createRequestFactory();
-
-    /**
-     * The token
-     */
-    @ToString.Exclude
-    private String token;
-
-    /**
-     * Sends a POST request to the URL set in the URL object passed as an argument.
-     *
-     * @param genericUrl The API URL
-     * @return The HTTP response
-     *
-     * @exception NullPointerException If {@code null} is passed as an argument
-     * @throws IOException If an error occurs during HTTP communication
-     */
-    protected HttpResponse postRequest(@NonNull final GenericUrl genericUrl, @NonNull final String message)
-            throws IOException {
-        final HttpRequest httpRequest = HTTP_REQUEST_FACTORY.buildPostRequest(genericUrl, ByteArrayContent.fromString(
-                ContentType.APPLICATION_X_WWWW_FORM_URLENCODED.getTag(), LineNotifyApiUtils.toMessageContent(message)));
-
-        httpRequest.getHeaders().setAuthorization(SecuritySchemeUtils.bearer(token));
-        return this.checkHttpStatus(httpRequest.execute());
-    }
 
     /**
      * Returns the http status message from HTTP response.
@@ -104,7 +67,7 @@ public abstract class AbstractCommunicator implements Communicator {
      *
      * @exception NullPointerException If {@code null} is passed as an argument
      */
-    private HttpResponse checkHttpStatus(@NonNull final HttpResponse httpResponse) {
+    protected HttpResponse checkHttpStatus(@NonNull final HttpResponse httpResponse) {
 
         final ErrorHttpStatus errorHttpStatus = BiCatalog.getEnumByTag(ErrorHttpStatus.class,
                 httpResponse.getStatusCode());
@@ -124,5 +87,9 @@ public abstract class AbstractCommunicator implements Communicator {
             case SERVICE_UNAVAILABLE -> throw new ServiceUnavailableException(this.getStatusMessage(httpResponse));
             default -> throw new IllegalStateException(); // It will never happen
         }
+    }
+
+    protected HttpRequestFactory getHttpRequestFactory() {
+        return HTTP_REQUEST_FACTORY;
     }
 }

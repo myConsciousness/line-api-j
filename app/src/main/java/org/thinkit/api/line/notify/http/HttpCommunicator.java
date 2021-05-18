@@ -17,8 +17,16 @@ package org.thinkit.api.line.notify.http;
 import java.io.IOException;
 import java.io.Serializable;
 
+import com.google.api.client.http.ByteArrayContent;
 import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpRequest;
 
+import org.thinkit.api.line.catalog.ContentType;
+import org.thinkit.api.line.http.AbstractCommunicator;
+import org.thinkit.api.line.util.LineNotifyApiUtils;
+import org.thinkit.api.line.util.SecuritySchemeUtils;
+
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.ToString;
@@ -31,20 +39,33 @@ import lombok.ToString;
  */
 @ToString
 @EqualsAndHashCode(callSuper = false)
+@AllArgsConstructor(staticName = "from")
 public final class HttpCommunicator extends AbstractCommunicator implements Serializable {
 
-    private HttpCommunicator(@NonNull final String token) {
-        super(token);
-    }
+    /**
+     * The token
+     */
+    @ToString.Exclude
+    private String token;
 
-    public static Communicator from(@NonNull final String token) {
-        return new HttpCommunicator(token);
-    }
-
+    /**
+     * Sends a POST request to the URL set in the URL object passed as an argument.
+     *
+     * @param genericUrl The API URL
+     * @return The HTTP response
+     *
+     * @exception NullPointerException If {@code null} is passed as an argument
+     * @throws IOException If an error occurs during HTTP communication
+     */
     @Override
-    public void post(@NonNull GenericUrl genericUrl, @NonNull final String message) {
+    public void post(@NonNull final GenericUrl genericUrl, @NonNull final String message) {
         try {
-            super.postRequest(genericUrl, message);
+            final HttpRequest httpRequest = super.getHttpRequestFactory().buildPostRequest(genericUrl,
+                    ByteArrayContent.fromString(ContentType.APPLICATION_X_WWWW_FORM_URLENCODED.getTag(),
+                            LineNotifyApiUtils.toMessageContent(message)));
+
+            httpRequest.getHeaders().setAuthorization(SecuritySchemeUtils.bearer(token));
+            this.checkHttpStatus(httpRequest.execute());
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
